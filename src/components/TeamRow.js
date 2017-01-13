@@ -1,56 +1,54 @@
 // @flow
 import React, { Component } from 'react';
+import type {TeamProps} from './../types/TeamProps'
+// type TeamProps = {
+// 	teamName: string,
+// 	goalsFor: number,
+// 	goalsAgainst: number,
+// 	wins: number,
+// 	losses: number,
+// 	draws: number
+// }
 
 class TeamRow extends Component {
-	state:{
-		teamName: string,
-		goalsFor: number,
-		goalsAgainst: number,
-		wins: number,
-		losses: number,
-		draws: number
+	props: TeamProps;
+
+	static defaultProps: {
+		teamName: 'TEAM',
+		wins: 1,
+		losses: 1,
+		draws: 1,
+		goalsFor: 1,
+		goalsAgainst: 1,
 	};
 
-	constructor(props: any) {
-		super(props);
-		this.state = 
-		{
-			teamName: 'TOTTENHAM HOTSPUR',
-			wins: 5,
-			losses: 0,
-			draws: 1,
-			goalsFor: 13,
-			goalsAgainst: 2,
-		}
-	}
-
 	getPoints() {
-		return this.state.wins * 3 + this.state.draws
+		return this.props.wins * 3 + this.props.draws
 	}
 
 	getGoalDifference() {
-		return this.state.goalsFor - this.state.goalsAgainst;
+		return this.props.goalsFor - this.props.goalsAgainst;
 	}
 
 	render() {
 		return <tr className="TeamRow">
 			<td>
-				{this.state.teamName}
+				{this.props.teamName}
 			</td>
 			<td >
-				{this.state.wins}
+				{this.props.wins}
 			</td>
 			<td>
-				{this.state.draws}
+				{this.props.draws}
 			</td>
 			<td>
-				{this.state.losses}
+				{this.props.losses}
 			</td>
 			<td>
-				{this.state.goalsFor}
+				{this.props.goalsFor}
 			</td>
 			<td>
-				{this.state.goalsAgainst}
+				{this.props.goalsAgainst}
 			</td>
 			<td>
 				{this.getGoalDifference()}
@@ -63,26 +61,3 @@ class TeamRow extends Component {
 }
 
 export default TeamRow;
-
-/*
-{
-	teamName: 'TOTTENHAM HOTSPUR',
-	wins: 5,
-	losses: 0,
-	draws: 1,
-	goalsFor: 13,
-	goalsAgainst: 2,
-}
-//key: index
-*/
-// return <div className="teamRow">
-		// 	<span>
-		// 		{this.state.teamName}
-		// 	</span>
-		// 	<span className="teamData">
-		// 		<br />
-		// 		{this.state.wins} W : {this.state.draws}D : {this.state.losses}L
-		// 	<br />
-		// 		{this.state.goalsFor} GF : {this.state.goalsAgainst} GA  ({this.getGoalDifference()})
-		// </span>
-		// </div>
