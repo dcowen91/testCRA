@@ -4,23 +4,14 @@ import logo from './logo.svg';
 import './App.css';
 import TeamRow from './components/TeamRow';
 import TeamTableHeader from './components/TeamTableHeader';
-import type {TeamProps} from './types/TeamProps'
+// import type {TeamProps } from './types/TeamProps'
+import ParseTeamData from './actions/ParseTeamData'
 
 class App extends Component {
-	fetchTeams(): TeamProps {
-		return {
-		teamName: 'TOTTENHAM',
-		wins: 6,
-		losses: 1,
-		draws: 6,
-		goalsFor: 12,
-		goalsAgainst: 1,
-		}
-	}
-
-
 	render() {
-		let team = this.fetchTeams();
+		let teams = new ParseTeamData();
+		let results = teams.ParseData();
+		let team = results[0];
 
 		return (
 			<div className="App">
@@ -31,8 +22,8 @@ class App extends Component {
 				<table>
 					<TeamTableHeader />
 					<tbody>
-						<TeamRow {...team}/>
-						<TeamRow {...team}/>
+						<TeamRow {...team} />
+						<TeamRow {...team} />
 						<TeamRow {...team} />
 					</tbody>
 				</table>
