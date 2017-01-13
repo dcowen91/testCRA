@@ -12,10 +12,10 @@ class teamTableHeader extends Component {
 			Wins
 		</th>
 		<th>
-			Losses
+			Draws
 		</th>
 		<th>
-			Draws
+			Losses
 		</th>
 		<th>
 			GF
@@ -32,7 +32,6 @@ class teamTableHeader extends Component {
 		</tr>
 		</thead>
 	}
-
 }
 
 export default teamTableHeader;

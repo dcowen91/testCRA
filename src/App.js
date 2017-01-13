@@ -20,7 +20,7 @@ class App extends Component {
 
 
 	render() {
-		let teams = this.fetchTeams();
+		let team = this.fetchTeams();
 
 		return (
 			<div className="App">
@@ -31,9 +31,9 @@ class App extends Component {
 				<table>
 					<TeamTableHeader />
 					<tbody>
-						<TeamRow {...teams}/>
-						<TeamRow {...teams}/>
-						<TeamRow {...teams} />
+						<TeamRow {...team}/>
+						<TeamRow {...team}/>
+						<TeamRow {...team} />
 					</tbody>
 				</table>
 			</div>

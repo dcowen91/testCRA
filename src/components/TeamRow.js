@@ -1,14 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import type {TeamProps} from './../types/TeamProps'
-// type TeamProps = {
-// 	teamName: string,
-// 	goalsFor: number,
-// 	goalsAgainst: number,
-// 	wins: number,
-// 	losses: number,
-// 	draws: number
-// }
 
 class TeamRow extends Component {
 	props: TeamProps;

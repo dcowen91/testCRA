@@ -4,8 +4,6 @@ body
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 15px;	
 	line-height: 1.7;
-	/*margin: 0;
-	padding: 30px;*/
 }
 
 table, tr {
@@ -16,9 +14,6 @@ th, td {
 	border-bottom: 1px solid black;
 	width: 100px;
 	height: 100px;
-/*margin-left:0px;
-margin-right:0px;*/
-	/*margin: 0px;*/
 	flex: 1;
 }
 
