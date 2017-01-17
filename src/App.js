@@ -4,14 +4,14 @@ import logo from './logo.svg';
 import './App.css';
 import TeamRow from './components/TeamRow';
 import TeamTableHeader from './components/TeamTableHeader';
-// import type {TeamProps } from './types/TeamProps'
+import type {TeamProps } from './types/TeamProps'
 import ParseTeamData from './actions/ParseTeamData'
 
 class App extends Component {
 	render() {
-		let teams = new ParseTeamData();
-		let results = teams.ParseData();
-		let team = results[0];
+		let teams : ParseTeamData = new ParseTeamData();
+		let results : Array<TeamProps> = teams.ParseData();
+		let team  : TeamProps = results[0];
 
 		return (
 			<div className="App">

@@ -1,9 +1,9 @@
 // @flow
-const fs = require('fs')
+// const fs = require('fs')
 // import fs from 'fs';
 import type {TeamProps } from './../types/TeamProps'
 // let jsonData = require('json!./../output.JSON');
-// import * as jsonData from 'json-loader!./../output.JSON'
+const jsonData = require('./../output.JSON')
 
 class ParseTeamData
 {
@@ -97,7 +97,7 @@ class ParseTeamData
 
 	ParseData() : Array<TeamProps>
 	{
-		let jsonData = JSON.parse(fs.readFileSync('output.JSON', 'utf8'));
+		// let jsonData = JSON.parse(fs.readFileSync('output.JSON', 'utf8'));
 		// const top6 = [true,false,false,true,false,false,false,false,true,true,true,false,false,false,false,false,true,false,false,false];
 		// const bottom5 = [false,false,false,false,true,false,true,false,true,false,false,true,false,false,true,true,false,false,false,false];
 		const all = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
