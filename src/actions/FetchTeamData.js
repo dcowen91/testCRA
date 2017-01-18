@@ -94,12 +94,12 @@ function FetchData() {
 			});
 			var outputObject = { TeamNamesByIndex, TeamNameToIndexMapping, resultsArray };
 			let output = JSON.stringify(outputObject);
-			fs.writeFile("src\\output.JSON", output, function (err) {
+			fs.writeFile("src\\output.json", output, function (err) {
 				if (err) {
 					console.log("ERROR: " + err.message)
 				}
 				else {
-					console.log("SUCCESS: wrote data to output.JSON");
+					console.log("SUCCESS: wrote data to output.json");
 				}
 			});
 		}

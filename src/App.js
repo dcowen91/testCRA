@@ -11,7 +11,8 @@ class App extends Component {
 	render() {
 		let teams : ParseTeamData = new ParseTeamData();
 		let results : Array<TeamProps> = teams.ParseData();
-		let team  : TeamProps = results[0];
+		results.sort((a:TeamProps,b:TeamProps) => ((b.wins * 3 + b.draws) - (a.wins * 3 + a.draws)));
+		var TeamRowArray = results.map((team) => <TeamRow key={team.teamName} {...team} />);
 
 		return (
 			<div className="App">
@@ -22,9 +23,7 @@ class App extends Component {
 				<table>
 					<TeamTableHeader />
 					<tbody>
-						<TeamRow {...team} />
-						<TeamRow {...team} />
-						<TeamRow {...team} />
+						{ TeamRowArray }
 					</tbody>
 				</table>
 			</div>

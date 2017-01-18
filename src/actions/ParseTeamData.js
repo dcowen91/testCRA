@@ -1,9 +1,6 @@
 // @flow
-// const fs = require('fs')
-// import fs from 'fs';
 import type {TeamProps } from './../types/TeamProps'
-// let jsonData = require('json!./../output.JSON');
-const jsonData = require('./../output.JSON')
+const jsonData = require('./../output.json')
 
 class ParseTeamData
 {
