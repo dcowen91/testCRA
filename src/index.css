@@ -2,7 +2,7 @@ body
 {
 	padding: 0;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 15px;	
+	font-size: 14px;	
 	line-height: 1.7;
 }
 
@@ -17,6 +17,11 @@ th, td {
 	flex: 1;
 }
 
+.filterRow {
+	flex: 1;
+	width: 100px;
+}
+
 table
 {
 	display:flex; 
@@ -24,4 +29,9 @@ table
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.filterContainer
+{
+	display: flex;
 }

@@ -92,14 +92,14 @@ class ParseTeamData
 		return teamArray;
 	}
 
-	ParseData() : Array<TeamProps>
+	ParseData(state : any) : Array<TeamProps>
 	{
 		// let jsonData = JSON.parse(fs.readFileSync('output.JSON', 'utf8'));
-		// const top6 = [true,false,false,true,false,false,false,false,true,true,true,false,false,false,false,false,true,false,false,false];
+		const top6 = [true,false,false,true,false,false,false,false,true,true,true,false,false,false,false,false,true,false,false,false];
 		// const bottom5 = [false,false,false,false,true,false,true,false,true,false,false,true,false,false,true,true,false,false,false,false];
 		const all = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
 
-		return this.createStateRows(jsonData,all,all, "ALL");
+		return this.createStateRows(jsonData,all,top6, state.venueFilter);
 	}
 }
 

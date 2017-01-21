@@ -7,12 +7,38 @@ import TeamTableHeader from './components/TeamTableHeader';
 import type {TeamProps } from './types/TeamProps'
 import ParseTeamData from './actions/ParseTeamData'
 
+// TODOs
+// 1. extract venueFilter to Component
+// 2. add other filters as Components
+// 3. add "played" column
+
 class App extends Component {
+	props: any;
+
+	state: {
+		venueFilter: "ALL" | "HOME" | "AWAY"
+	};
+
+	constructor(props : any)
+	{
+		super(props);
+		this.state = {
+			venueFilter: "ALL"
+		};
+		this.handleChange = this.handleChange.bind(this);
+	}
+
+	handleChange(event: any) {
+		this.setState({
+			venueFilter: event.target.value
+		});
+	}
+
 	render() {
-		let teams : ParseTeamData = new ParseTeamData();
-		let results : Array<TeamProps> = teams.ParseData();
-		results.sort((a:TeamProps,b:TeamProps) => ((b.wins * 3 + b.draws) - (a.wins * 3 + a.draws)));
-		var TeamRowArray = results.map((team) => <TeamRow key={team.teamName} {...team} />);
+		const parseTeamData: ParseTeamData = new ParseTeamData();
+		let results: Array<TeamProps> = parseTeamData.ParseData(this.state);
+		results.sort((a: TeamProps, b: TeamProps) => ((b.wins * 3 + b.draws) - (a.wins * 3 + a.draws)));
+		let TeamRowArray = results.map((team) => <TeamRow key={team.teamName} {...team} />);
 
 		return (
 			<div className="App">
@@ -20,10 +46,31 @@ class App extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<h2>SubTables</h2>
 				</div>
+				<h4>
+					Filters
+				</h4>
+				<div className="filterContainer">
+					<div className="filterRow">
+						TeamsToShow
+					</div>
+					<div className="filterRow">
+						OpponentsToShow
+					</div>
+					<div className="filterRow">
+						HomeAwayFilter
+						<div>
+							<select onChange={this.handleChange} value={this.state.venueFilter}>
+								<option value="ALL" >All</option>
+								<option value="HOME">Home</option>
+								<option value="AWAY">Away</option>
+							</select>
+						</div>
+					</div>
+				</div>
 				<table>
 					<TeamTableHeader />
 					<tbody>
-						{ TeamRowArray }
+						{TeamRowArray}
 					</tbody>
 				</table>
 			</div>
