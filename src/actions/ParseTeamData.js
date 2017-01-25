@@ -1,10 +1,8 @@
-// @flow
-import type {TeamProps } from './../types/TeamProps'
 const jsonData = require('./../output.json')
 
 class ParseTeamData
 {
-	addResults(team : TeamProps, matchScore : Array<number>, venue : string)
+	addResults(team , matchScore, venue)
 	{
 		if (venue === "HOME")
 		{
@@ -44,7 +42,7 @@ class ParseTeamData
 		}
 	}
 
-	createTeamArray(jsonData : any, teamsToShow : Array<bool>): Array<TeamProps>
+	createTeamArray(jsonData, teamsToShow)
 	{
 		let result = [];
 		for (let i = 0; i < jsonData.TeamNamesByIndex.length; i++)
@@ -66,7 +64,7 @@ class ParseTeamData
 		return result;
 	}
 
-	createStateRows(jsonData : any, teamsToShow : Array<bool>, opponentsToShow : Array<bool>, locationFilter : string): Array<TeamProps>
+	createStateRows(jsonData, teamsToShow, opponentsToShow, locationFilter)
 	{
 		let teamArray = this.createTeamArray(jsonData, teamsToShow);
 
@@ -92,14 +90,24 @@ class ParseTeamData
 		return teamArray;
 	}
 
-	ParseData(state : any) : Array<TeamProps>
+	buildTeamBindings()
+	{
+		let resultObject = {}
+		jsonData.TeamNamesByIndex.forEach(function(element) {
+			resultObject[element] = true;
+		}, this);
+		return resultObject;
+	}
+
+
+	ParseData(filters)
 	{
 		// let jsonData = JSON.parse(fs.readFileSync('output.JSON', 'utf8'));
 		const top6 = [true,false,false,true,false,false,false,false,true,true,true,false,false,false,false,false,true,false,false,false];
 		// const bottom5 = [false,false,false,false,true,false,true,false,true,false,false,true,false,false,true,true,false,false,false,false];
 		const all = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
 
-		return this.createStateRows(jsonData,all,top6, state.venueFilter);
+		return this.createStateRows(jsonData,all,top6, filters.venueFilter);
 	}
 }
 

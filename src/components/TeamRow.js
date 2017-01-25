@@ -1,19 +1,6 @@
-// @flow
 import React, { Component } from 'react';
-import type {TeamProps} from './../types/TeamProps'
 
 class TeamRow extends Component {
-	props: TeamProps;
-
-	static defaultProps: {
-		teamName: 'TEAM',
-		wins: 1,
-		losses: 1,
-		draws: 1,
-		goalsFor: 1,
-		goalsAgainst: 1,
-	};
-
 	getPoints() {
 		return this.props.wins * 3 + this.props.draws
 	}
@@ -50,6 +37,15 @@ class TeamRow extends Component {
 			</td>
 		</tr>
 	}
+}
+
+TeamRow.propTypes = {
+	teamName: React.PropTypes.string.isRequired,
+	wins: React.PropTypes.number.isRequired,
+	losses: React.PropTypes.number.isRequired,
+	draws: React.PropTypes.number.isRequired,
+	goalsFor: React.PropTypes.number.isRequired,
+	goalsAgainst: React.PropTypes.number.isRequired,
 }
 
 export default TeamRow;

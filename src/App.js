@@ -1,43 +1,38 @@
-// @flow
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TeamRow from './components/TeamRow';
 import TeamTableHeader from './components/TeamTableHeader';
-import type {TeamProps } from './types/TeamProps'
-import ParseTeamData from './actions/ParseTeamData'
+import VenueFilter from './components/VenueFilter';
+import TeamShowFilter from './components/TeamShowFilter';
+
+// import ParseTeamData from './actions/ParseTeamData';
 
 // TODOs
-// 1. extract venueFilter to Component
 // 2. add other filters as Components
 // 3. add "played" column
 
 class App extends Component {
-	props: any;
-
-	state: {
-		venueFilter: "ALL" | "HOME" | "AWAY"
-	};
-
-	constructor(props : any)
+	constructor(props)
 	{
 		super(props);
 		this.state = {
-			venueFilter: "ALL"
+			venueFilter: "ALL",
+			teamsToShow: this.props.parseTeamData.buildTeamBindings()
 		};
-		this.handleChange = this.handleChange.bind(this);
+
+		this.handleVenueChange = this.handleVenueChange.bind(this);
 	}
 
-	handleChange(event: any) {
+	handleVenueChange(event) {
 		this.setState({
 			venueFilter: event.target.value
 		});
 	}
 
 	render() {
-		const parseTeamData: ParseTeamData = new ParseTeamData();
-		let results: Array<TeamProps> = parseTeamData.ParseData(this.state);
-		results.sort((a: TeamProps, b: TeamProps) => ((b.wins * 3 + b.draws) - (a.wins * 3 + a.draws)));
+		let results = this.props.parseTeamData.ParseData(this.state);
+		results.sort((a, b) => ((b.wins * 3 + b.draws) - (a.wins * 3 + a.draws)));
 		let TeamRowArray = results.map((team) => <TeamRow key={team.teamName} {...team} />);
 
 		return (
@@ -50,22 +45,11 @@ class App extends Component {
 					Filters
 				</h4>
 				<div className="filterContainer">
-					<div className="filterRow">
-						TeamsToShow
-					</div>
+					<TeamShowFilter teamsToShow={this.state.teamsToShow}/>
 					<div className="filterRow">
 						OpponentsToShow
 					</div>
-					<div className="filterRow">
-						HomeAwayFilter
-						<div>
-							<select onChange={this.handleChange} value={this.state.venueFilter}>
-								<option value="ALL" >All</option>
-								<option value="HOME">Home</option>
-								<option value="AWAY">Away</option>
-							</select>
-						</div>
-					</div>
+					<VenueFilter venueFilter={this.state.venueFilter} handleChange={this.handleVenueChange}/>
 				</div>
 				<table>
 					<TeamTableHeader />
