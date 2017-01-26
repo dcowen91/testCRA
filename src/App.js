@@ -22,6 +22,14 @@ class App extends Component {
 		};
 
 		this.handleVenueChange = this.handleVenueChange.bind(this);
+		this.handleTeamVisibilityChange = this.handleTeamVisibilityChange.bind(this);
+	}
+
+	handleTeamVisibilityChange(event) {
+		// console.log(target);
+		// console.log(value)
+		console.log(event);
+		// console.log(Object.Assign(this.state.teamsToShow, {event}));
 	}
 
 	handleVenueChange(event) {
@@ -45,7 +53,7 @@ class App extends Component {
 					Filters
 				</h4>
 				<div className="filterContainer">
-					<TeamShowFilter teamsToShow={this.state.teamsToShow}/>
+					<TeamShowFilter teamsToShow={this.state.teamsToShow} handleChange={this.handleTeamVisibilityChange}/>
 					<div className="filterRow">
 						OpponentsToShow
 					</div>

@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
 
-class TeamShowFilter extends Component{
+class TeamShowFilter extends Component {
+
 	render() {
-		let results = Object.keys(this.props.teamsToShow).map((teamName) => <div><label> <input key={teamName} type="radio" defaultChecked={this.props.teamsToShow[teamName]} /> {teamName} </label></div>);
+		let results = Object.keys(this.props.teamsToShow).map(
+			(teamName) =>
+				<div key={teamName}>
+					<label>
+						<input type="radio" defaultChecked={this.props.teamsToShow[teamName]} onChange={this.props.handleChange} /> 
+						{teamName} 
+					</label>
+				</div>);
 		return <div className="filterRow">
-					TeamsToShow
+			TeamsToShow
 					<div>
-					{results}
-					</div>
-				</div>
+				{results}
+			</div>
+		</div>
 	}
 }
 
