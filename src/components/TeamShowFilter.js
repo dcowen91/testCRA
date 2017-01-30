@@ -7,7 +7,7 @@ class TeamShowFilter extends Component {
 			(teamName) =>
 				<div key={teamName}>
 					<label>
-						<input type="radio" defaultChecked={this.props.teamsToShow[teamName]} onChange={this.props.handleChange} /> 
+						<input type="radio" id={"radio_" + teamName} checked={this.props.teamsToShow[teamName]} onChange={this.props.handleChange} /> 
 						{teamName} 
 					</label>
 				</div>);

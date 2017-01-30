@@ -13,8 +13,7 @@ import TeamShowFilter from './components/TeamShowFilter';
 // 3. add "played" column
 
 class App extends Component {
-	constructor(props)
-	{
+	constructor(props) {
 		super(props);
 		this.state = {
 			venueFilter: "ALL",
@@ -26,10 +25,11 @@ class App extends Component {
 	}
 
 	handleTeamVisibilityChange(event) {
-		// console.log(target);
-		// console.log(value)
-		console.log(event);
-		// console.log(Object.Assign(this.state.teamsToShow, {event}));
+		var teamName = event.target.id.split('_')[1];
+		var newObj = {[teamName] : !this.state.teamsToShow[teamName] };
+
+		var newState = Object.assign(this.state.teamsToShow, newObj);
+		this.setState({ teamsToShow: newState });
 	}
 
 	handleVenueChange(event) {
@@ -53,11 +53,11 @@ class App extends Component {
 					Filters
 				</h4>
 				<div className="filterContainer">
-					<TeamShowFilter teamsToShow={this.state.teamsToShow} handleChange={this.handleTeamVisibilityChange}/>
+					<TeamShowFilter teamsToShow={this.state.teamsToShow} handleChange={this.handleTeamVisibilityChange} />
 					<div className="filterRow">
 						OpponentsToShow
 					</div>
-					<VenueFilter venueFilter={this.state.venueFilter} handleChange={this.handleVenueChange}/>
+					<VenueFilter venueFilter={this.state.venueFilter} handleChange={this.handleVenueChange} />
 				</div>
 				<table>
 					<TeamTableHeader />
