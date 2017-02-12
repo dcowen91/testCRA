@@ -24,13 +24,13 @@ class TeamShowFilter extends Component {
 	render() {
 		let results = Object.keys(this.props.teamsToShow).map(
 			(teamName) =>
-				<div key={teamName}>
-					<label>
+				<span className="dataSpan" key={teamName}>
+					<label className={this.props.teamsToShow[teamName] ? "checked" : "unchecked"}>
 						<input type="radio" id={"radio_" + teamName} checked={this.props.teamsToShow[teamName]} onChange={this.props.handleChange} /> 
 						{this.toTitleCase(teamName)} 
 					</label>
-				</div>);
-		let classNames = this.state.expanded ? "dataContainer" : "dataContainer hiddenClass";
+				</span>);
+		let classNames = this.state.expanded ? "dataContainer visibleClass" : "dataContainer hiddenClass";
 
 		return	<div className="filterRow" >
 					<span className="filterHeader" onClick={this.handleClick}>

@@ -23,7 +23,7 @@ class venueFilter extends Component {
 						Venue
 					</span>
 			<div className={classNames}>
-					<select onChange={this.props.handleChange} value={this.props.venueFilter}>
+					<select size={3} onChange={this.props.handleChange} value={this.props.venueFilter}>
 						<option value="ALL" >All</option>
 						<option value="HOME">Home</option>
 						<option value="AWAY">Away</option>

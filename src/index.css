@@ -4,10 +4,24 @@ body
 	background: linear-gradient(45deg, #49a09d, #5f2c82);
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 300;
+	height: 100%;
+	background-attachment: fixed;
 }
+input[type=radio] {
+	display: none;
+}
+
+.filterHeader {
+	font-weight: bold;
+}
+
+.checked{
+	background: #49a09d;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
 .hiddenClass {
 	display:none;
-
 }
 
 thead {
@@ -48,4 +62,19 @@ table
 	flex-direction: row;
 	margin:auto;
 	width:75%;
+}
+
+.visibleClass
+{
+	position:absolute;
+}
+
+.dataSpan
+{
+	background: black;
+	margin:auto;
+	width: 100%;
+	padding: 1px;
+	z-index: 1;
+	display: block;
 }
