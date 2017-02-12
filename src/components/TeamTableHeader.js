@@ -8,6 +8,9 @@ class teamTableHeader extends Component {
 			Team
 		</th>
 		<th>
+			Played
+		</th>
+		<th>
 			Wins
 		</th>
 		<th>

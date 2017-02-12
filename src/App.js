@@ -49,9 +49,24 @@ class App extends Component {
 		});
 	}
 
+	sortTeams(a,b){
+		var points = (b.wins * 3 + b.draws) - (a.wins * 3 + a.draws);
+		if (points !== 0)
+		{
+			return points;
+		}
+
+		var goalDiff =  (b.goalsFor - b.goalsAgainst) - (a.goalsFor - a.goalsAgainst);
+		if (goalDiff !== 0)
+		{
+			return goalDiff;
+		}
+		return b.goalsFor - a.goalsFor
+	}
+
 	render() {
 		let results = this.props.parseTeamData.ParseData(this.state);
-		results.sort((a, b) => ((b.wins * 3 + b.draws) - (a.wins * 3 + a.draws)));
+		results.sort(this.sortTeams);
 		let TeamRowArray = results.map((team) => <TeamRow key={team.teamName} {...team} />);
 
 		return (

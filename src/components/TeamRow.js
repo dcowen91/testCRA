@@ -8,18 +8,22 @@ class TeamRow extends Component {
 	getGoalDifference() {
 		return this.props.goalsFor - this.props.goalsAgainst;
 	}
+
 	toTitleCase(str) {
-	return str.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
-		return match.toUpperCase();
-	});
-}
+		return str.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
+			return match.toUpperCase();
+		});
+	}
 
 	render() {
 		return <tr className="TeamRow">
 			<td>
 				{this.toTitleCase(this.props.teamName)}
 			</td>
-			<td >
+			<td>
+				{this.props.wins + this.props.draws + this.props.losses}
+			</td>
+			<td>
 				{this.props.wins}
 			</td>
 			<td>
