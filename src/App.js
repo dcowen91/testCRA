@@ -9,8 +9,8 @@ import TeamShowFilter from './components/TeamShowFilter';
 // import ParseTeamData from './actions/ParseTeamData';
 
 // TODOs
-// 1. add "played" column
-// 2. figure out styling
+// 1. finish styling dropdown
+// 2. add responsive support
 // 3. add routing support
 
 class App extends Component {
