@@ -12,8 +12,8 @@ class TeamShowFilter extends Component {
 					</label>
 				</div>);
 		return <div className="filterRow">
-			TeamsToShow
-					<div>
+			{this.props.title}
+					<div className="dataContainer">
 				{results}
 			</div>
 		</div>

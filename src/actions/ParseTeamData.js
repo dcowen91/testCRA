@@ -102,11 +102,7 @@ class ParseTeamData
 
 	ParseData(filters)
 	{
-		const top6 = [true,false,false,true,false,false,false,false,true,true,true,false,false,false,false,false,true,false,false,false];
-		// const bottom5 = [false,false,false,false,true,false,true,false,true,false,false,true,false,false,true,true,false,false,false,false];
-		// const all = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
-
-		return this.createStateRows(jsonData,Object.values(filters.teamsToShow) ,top6, filters.venueFilter);
+		return this.createStateRows(jsonData,Object.values(filters.teamsToShow), Object.values(filters.resultsToShow), filters.venueFilter);
 	}
 }
 

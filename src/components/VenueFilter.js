@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class venueFilter extends Component {
 	render() {
 		return <div className="filterRow">
-			HomeAwayFilter
-			<div>
+			Venue
+			<div className="dataContainer">
 					<select onChange={this.props.handleChange} value={this.props.venueFilter}>
 						<option value="ALL" >All</option>
 						<option value="HOME">Home</option>

@@ -8,11 +8,16 @@ class TeamRow extends Component {
 	getGoalDifference() {
 		return this.props.goalsFor - this.props.goalsAgainst;
 	}
+	toTitleCase(str) {
+	return str.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
+		return match.toUpperCase();
+	});
+}
 
 	render() {
 		return <tr className="TeamRow">
 			<td>
-				{this.props.teamName}
+				{this.toTitleCase(this.props.teamName)}
 			</td>
 			<td >
 				{this.props.wins}
