@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 
 class venueFilter extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {expanded: false};
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick()
+	{	
+		this.setState({
+			expanded: !this.state.expanded
+		})
+	}
+
 	render() {
-		return <div className="filterRow">
-			Venue
-			<div className="dataContainer">
+		let classNames = this.state.expanded ? "dataContainer" : "dataContainer hiddenClass";
+
+		return	<div className="filterRow" >
+					<span className="filterHeader" onClick={this.handleClick}>
+						Venue
+					</span>
+			<div className={classNames}>
 					<select onChange={this.props.handleChange} value={this.props.venueFilter}>
 						<option value="ALL" >All</option>
 						<option value="HOME">Home</option>

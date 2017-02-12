@@ -2,10 +2,23 @@ import React, { Component } from 'react'
 
 class TeamShowFilter extends Component {
 
+	constructor(props) {
+	super(props);
+	this.state = {expanded: false};
+	this.handleClick = this.handleClick.bind(this);
+	}
+
 	toTitleCase(str) {
 		return str.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
 			return match.toUpperCase();
 		});
+	}
+	
+	handleClick()
+	{	
+		this.setState({
+			expanded: !this.state.expanded
+		})
 	}
 
 	render() {
@@ -17,12 +30,16 @@ class TeamShowFilter extends Component {
 						{this.toTitleCase(teamName)} 
 					</label>
 				</div>);
-		return <div className="filterRow">
-			{this.props.title}
-					<div className="dataContainer">
-				{results}
-			</div>
-		</div>
+		let classNames = this.state.expanded ? "dataContainer" : "dataContainer hiddenClass";
+
+		return	<div className="filterRow" >
+					<span className="filterHeader" onClick={this.handleClick}>
+						{this.props.title}
+					</span>
+					<div className={classNames}>
+						{results}
+					</div>
+				</div>
 	}
 }
 

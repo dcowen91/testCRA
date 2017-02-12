@@ -5,9 +5,9 @@ body
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 300;
 }
-.dataContainer{
+.hiddenClass {
 	display:none;
-	font-weight:100;
+
 }
 
 thead {
