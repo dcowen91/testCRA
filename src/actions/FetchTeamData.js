@@ -47,7 +47,7 @@ const TeamNamesByIndex = [
 	"WEST HAM UNITED"
 ];
 
-const baseUrl = 'http://en.wikipedia.org/w/api.php?action=parse&page=2016%E2%80%9317_Premier_League&prop=text&section=9&format=json';
+const baseUrl = 'http://en.wikipedia.org/w/api.php?action=parse&page=2016%E2%80%9317_Premier_League&prop=text&section=10&format=json';
 
 function transformNode(result) {
 	if (!!result && result === "—") {
