@@ -78,3 +78,23 @@ table
 	z-index: 1;
 	display: block;
 }
+
+.filterRow:hover::before {
+	background: #55cca2;
+	left:0;
+	display:block;
+	content: "";
+	z-index: -1;
+	height: 4px;
+}
+
+.carat {
+	margin-left: 1em;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	vertical-align: middle;
+	border-top: 5px solid #000;
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent;
+}

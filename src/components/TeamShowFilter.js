@@ -36,6 +36,7 @@ class TeamShowFilter extends Component {
 					<span className="filterHeader" onClick={this.handleClick}>
 						{this.props.title}
 					</span>
+					<span className="carat"></span>
 					<div className={classNames}>
 						{results}
 					</div>

@@ -20,8 +20,9 @@ class venueFilter extends Component {
 
 		return	<div className="filterRow" >
 					<span className="filterHeader" onClick={this.handleClick}>
-						Venue
+						Location
 					</span>
+					<span className="carat"></span>
 			<div className={classNames}>
 					<select size={3} onChange={this.props.handleChange} value={this.props.venueFilter}>
 						<option value="ALL" >All</option>
