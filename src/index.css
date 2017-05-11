@@ -42,6 +42,7 @@ thead th {
 	line-height: 1.5em;
 	flex:1 1 33%;
 	background-color: #55608f;
+	cursor:pointer;
 }
 
 table
@@ -67,6 +68,9 @@ table
 .visibleClass
 {
 	position:absolute;
+	width: 12%;
+	padding-left: 8%;
+	text-align: left;
 }
 
 .dataSpan

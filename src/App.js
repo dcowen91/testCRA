@@ -6,8 +6,6 @@ import TeamTableHeader from './components/TeamTableHeader';
 import VenueFilter from './components/VenueFilter';
 import TeamShowFilter from './components/TeamShowFilter';
 
-// import ParseTeamData from './actions/ParseTeamData';
-
 class App extends Component {
 	constructor(props) {
 		super(props);

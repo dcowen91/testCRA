@@ -18,8 +18,8 @@ class venueFilter extends Component {
 	render() {
 		let classNames = this.state.expanded ? "dataContainer" : "dataContainer hiddenClass";
 
-		return	<div className="filterRow" >
-					<span className="filterHeader" onClick={this.handleClick}>
+		return	<div className="filterRow" onClick={this.handleClick}>
+					<span className="filterHeader" >
 						Location
 					</span>
 					<span className="carat"></span>

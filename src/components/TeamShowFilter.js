@@ -3,15 +3,15 @@ import React, { Component } from 'react'
 class TeamShowFilter extends Component {
 
 	constructor(props) {
-	super(props);
-	this.state = {expanded: false};
-	this.handleClick = this.handleClick.bind(this);
+		super(props);
+		this.state = {expanded: false};
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	toTitleCase(str) {
 		return str.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
 			return match.toUpperCase();
-		}).substring(0,3);
+		});
 	}
 	
 	handleClick()
@@ -32,8 +32,8 @@ class TeamShowFilter extends Component {
 				</span>);
 		let classNames = this.state.expanded ? "dataContainer visibleClass" : "dataContainer hiddenClass";
 
-		return	<div className="filterRow" >
-					<span className="filterHeader" onClick={this.handleClick}>
+		return	<div className="filterRow" onClick={this.handleClick}>
+					<span className="filterHeader">
 						{this.props.title}
 					</span>
 					<span className="carat"></span>
