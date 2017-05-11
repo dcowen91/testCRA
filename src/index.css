@@ -39,7 +39,7 @@ thead th {
 
 .filterRow {
 	color: #fff;
-	padding: 10px;
+	line-height: 1.5em;
 	flex:1 1 33%;
 	background-color: #55608f;
 }
@@ -79,6 +79,15 @@ table
 	display: block;
 }
 
+.filterRow::before {
+	background: #55608f;
+	left:0;
+	display:block;
+	content: "";
+	z-index: -1;
+	height: 4px;
+}
+
 .filterRow:hover::before {
 	background: #55cca2;
 	left:0;
@@ -97,4 +106,8 @@ table
 	border-top: 5px solid #000;
 	border-right: 5px solid transparent;
 	border-left: 5px solid transparent;
+}
+
+.filterRow:hover .carat {
+	border-top-color: #55cca2;
 }
